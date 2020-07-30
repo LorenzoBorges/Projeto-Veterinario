@@ -13,13 +13,12 @@ class CirurgiaInline(admin.TabularInline):
     model = models.Cirurgia
     extra = 1
 
-class ClienteAdmin(admin.ModelAdmin):
-    list_display = ('id', 'animal', 'raca', 'dono',
-                    'telefone', 'plano', 'mostrar')
+class AnimalAdmin(admin.ModelAdmin):
+    list_display = ('id', 'animal', 'raca', 'dono', 'plano', 'mostrar')
     list_display_links = ('id', 'animal', 'dono')
     list_per_page = 10
-    search_fields = ('dono', 'animal')
-    list_editable = ('telefone', 'mostrar')
+    search_fields = ('animal',)
+    list_editable = ('mostrar',)
     inlines = [
         VacinaInline,
         ConsultaInline,
@@ -28,7 +27,8 @@ class ClienteAdmin(admin.ModelAdmin):
 
 
 admin.site.register(models.Plano)
-admin.site.register(models.Cliente, ClienteAdmin)
+admin.site.register(models.Dono)
+admin.site.register(models.Animal, AnimalAdmin)
 admin.site.register(models.Vacina)
 admin.site.register(models.Consulta)
 admin.site.register(models.Cirurgia)

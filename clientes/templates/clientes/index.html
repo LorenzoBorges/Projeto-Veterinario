@@ -36,27 +36,25 @@
         <p>Espécie</p>
         <p>Raça</p>
         <p>Responsável</p>
-        <p>Telefone</p>
         <p>Plano</p>
         <p>Última consulta</p>
     </section>
-    {% for cliente in clientes %}
-    {% if cliente.mostrar %}
+    {% for animal in animais %}
+    {% if animal.mostrar %}
     <section>
         <p>
-            <a href="{% url 'ver_cliente' cliente.id %}">{{cliente.animal}}</a>
+            <a href="{% url 'ver_animal' animal.id %}">{{animal.animal}}</a>
         </p>
         <p>
-            <a href="#">{{cliente.especie}}</a>
+            <a href="#">{{animal.especie}}</a>
         </p>
         <p>
-            <a href="#">{{cliente.raca}}</a>
+            <a href="#">{{animal.raca}}</a>
         </p>
         <p>
-            <a href="#">{{cliente.dono}}</a>
+            <a href="#">{{animal.dono}}</a>
         </p>
-        <p>{{cliente.telefone}}</p>
-        <p> {{cliente.plano}} </p>
+        <p> {{animal.plano}} </p>
         <p>
             <a href="#"> DATA </a>
         </p>

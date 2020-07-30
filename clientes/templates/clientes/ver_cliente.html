@@ -4,50 +4,44 @@
 <h1 class="mt-5">{{ cliente.animal }}, {{ cliente.raca }}</h1>
 <dl>
     <dt>ID</dt>
-    <dd>{{ cliente.id }}</dd>
+    <dd>{{ animal.id }}</dd>
 
     <dt>Dono</dt>
-    <dd>{{ cliente.dono }}</dd>
+    <dd>{{ animal.dono }}</dd>
 
     <dt>Nome do animal</dt>
-    <dd>{{ cliente.animal }}</dd>
+    <dd>{{ animal.animal }}</dd>
 
     <dt>Espécie</dt>
-    <dd>{{ cliente.especie }}</dd>
+    <dd>{{ animal.especie }}</dd>
 
     <dt>Raça</dt>
-    <dd>{{ cliente.raca }}</dd>
+    <dd>{{ animal.raca }}</dd>
 
     <dt>Peso</dt>
-    <dd>{{ cliente.peso }}</dd>
+    <dd>{{ animal.peso }}</dd>
 
     <dt>Idade</dt>
-    <dd>{{ cliente.idade }}</dd>
-
-    <dt>Telefone</dt>
-    <dd>{{ cliente.telefone }}</dd>
-
-    <dt>E-mail</dt>
-    <dd>{{ cliente.email }}</dd>
+    <dd>{{ animal.idade }}</dd>
 
     <dt>Data criação</dt>
-    <dd>{{ cliente.data_criacao|date:'d/m/Y' }}</dd>
+    <dd>{{ animal.data_criacao|date:'d/m/Y' }}</dd>
 
     <dt>Plano</dt>
-    <dd>{{ cliente.plano }}</dd>
+    <dd>{{ animal.plano }}</dd>
 
-    {% if cliente.descricao %}
+    {% if animal.descricao %}
     <dt>Descrição</dt>
-    <dd>{{ cliente.descricao }}</dd>
+    <dd>{{ animal.descricao }}</dd>
     {% endif %}
 
-    {% if cliente.vacina_set.all or cliente.consulta_set.all or cliente.cirurgia_set.all%}
+    {% if animal.vacina_set.all or animal.consulta_set.all or animal.cirurgia_set.all%}
     <h1 class="mt-5">Histórico</h1>
 
-    {% if cliente.vacina_set.all%}
+    {% if animal.vacina_set.all%}
     <dt>Vacinas</dt>
 
-    {% for vacina in cliente.vacina_set.all %}
+    {% for vacina in animal.vacina_set.all %}
     <thead>
         <tr>
             <td>{{ vacina.vacina }}</td>
@@ -57,10 +51,10 @@
     {% endfor %}
     {% endif %}
 
-    {% if cliente.consulta_set.all%}
+    {% if animal.consulta_set.all%}
     <dt>Consultas</dt>
 
-    {% for consulta in cliente.consulta_set.all %}
+    {% for consulta in animal.consulta_set.all %}
     <thead>
         <tr>
             <td>{{ consulta.consulta }}</td>
@@ -70,10 +64,10 @@
     {% endfor %}
     {% endif %}
 
-    {% if cliente.cirurgia_set.all%}
+    {% if animal.cirurgia_set.all%}
     <dt>Cirurgias</dt>
 
-    {% for cirurgia in cliente.cirurgia_set.all %}
+    {% for cirurgia in animal.cirurgia_set.all %}
     <thead>
         <tr>
             <td>{{ cirurgia.cirurgia }}</td>
